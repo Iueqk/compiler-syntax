@@ -80,6 +80,7 @@ terminal_sign_type = [
     'true',
     'false',
     'void',
+    'do',
     'while',
     'for',
     'input-id',

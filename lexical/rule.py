@@ -11,6 +11,7 @@ token_type = [
     'true',
     'false',
     'void',
+    'do',
     'while',
     'for',
     'input-id',
@@ -62,6 +63,7 @@ regex_dict = {
     'int': r'int',
     'return': r'return',
     'void': r'void',
+    'do': r'do',
     'while': r'while',
     'mul-operator': r'[\+|\-|\*\/\%]=',  # += -= *= /= %=
     'equal-sign': r'[>|=|<|!]=',  # >= <= == !=

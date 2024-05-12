@@ -484,16 +484,16 @@ class Tree:
         """
         self.root = root
 
-    def print_tree(root):
-        l = list()
-        print("father:", root.data.type)
-        print("children:", end=" ")
-        for i in root.children:
-            l.append(i)
-            print(i.data.type, end=", ")
-        print()
-        for i in l:
-            Tree.print_tree(i)
+    def print_tree(root, level=0):
+        if root is None:
+            return
+
+        # 打印当前节点
+        print("  " * level + "father:", root.data.type)
+
+        # 递归打印子节点
+        for child in root.children:
+            Tree.print_tree(child, level + 1)
 
 
 class Stack:

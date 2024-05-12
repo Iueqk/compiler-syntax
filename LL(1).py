@@ -29,7 +29,7 @@ if lexical_success:
     if syntax_success:
         print('语法分析结果:\n')
         tree = TreeVisualizer(syntax.grammar_tree)
-        tree.visualize()
+        tree.draw_tree()
         Tree.print_tree(syntax.grammar_tree.root)
     else:
         print('错误原因:\t', syntax.get_error().info, syntax.get_error().line, '行')

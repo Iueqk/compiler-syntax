@@ -24,15 +24,22 @@ class TreeVisualizer:
 
     def plot_tree(self, node, dot):
         # 添加当前节点
-        dot.node(name=self.get_node_id(node), label=node.data.type, fontname='FangSong')
+        if not node.children and node.parent and node.value:  # 如果节点是叶子节点且父节点不是根节点且节点值不为空
+            label = node.value
+        elif node.children:  # 如果节点有子节点
+            label = node.data.type
+        else:
+            label = ''
 
-        # 添加父子关系
-        if node.parent is not None:
-            dot.edge(self.get_node_id(node.parent), self.get_node_id(node))
+        if label!='':
+            dot.node(name=self.get_node_id(node), label=label, fontname='FangSong')
+            # 添加父子关系
+            if node.parent is not None:
+                dot.edge(self.get_node_id(node.parent), self.get_node_id(node))
 
-        # 递归绘制直接子节点
-        for child in node.children:
-            self.plot_tree(child, dot)
+            # 递归绘制直接子节点
+            for child in node.children:
+                self.plot_tree(child, dot)
 
     def get_node_id(self, node):
         return str(id(node))
